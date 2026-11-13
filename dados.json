@@ -1,0 +1,48 @@
+{
+  "vinhos": [
+        {
+            "nome": "Merlot",
+            "tipo": "Vinho Tinto",
+            "ano": 2018,
+            "pais": "França",
+            "regiao": "Bordeaux",
+            "caracteristicas": ["frutado", "complexo"]
+        },
+
+        {
+            "nome": "Chardonnay",
+            "tipo": "Vinho Branco",
+            "ano": 2019,
+            "pais": "França",
+            "regiao": "Burgundy",
+            "caracteristicas": ["refinado", "elegante"]
+        },
+
+        {
+            "nome": "Cabernet Sauvignon",
+            "tipo": "Vinho Tinto",
+            "ano": 2020,
+            "pais": "Chile",
+            "regiao": "Maipo Valley",
+            "caracteristicas": ["intenso", "encorpado"]
+        },
+
+        {
+            "nome": "Cabernet Sauvignon",
+            "tipo": "Vinho Tinto",
+            "ano": 2020,
+            "pais": "Chile",
+            "regiao": "Maipo Valley",
+            "caracteristicas": ["intenso", "encorpado"]
+        },
+
+        {
+            "nome": "Cabernet Sauvignon",
+            "tipo": "Vinho Tinto",
+            "ano": 2020,
+            "pais": "Chile",
+            "regiao": "Maipo Valley",
+            "caracteristicas": ["intenso", "encorpado"]
+        }
+    ]
+}
