@@ -1,6 +1,7 @@
 {
   "vinhos": [
         {
+            "id": 1,
             "nome": "Merlot",
             "tipo": "Vinho Tinto",
             "ano": 2018,
@@ -10,6 +11,7 @@
         },
 
         {
+            "id": 2,
             "nome": "Chardonnay",
             "tipo": "Vinho Branco",
             "ano": 2019,
@@ -19,30 +21,83 @@
         },
 
         {
-            "nome": "Cabernet Sauvignon",
+            "id": 3,
+            "nome": "Merlot",
             "tipo": "Vinho Tinto",
-            "ano": 2020,
+            "ano": 2011,
             "pais": "Chile",
             "regiao": "Maipo Valley",
             "caracteristicas": ["intenso", "encorpado"]
         },
 
         {
-            "nome": "Cabernet Sauvignon",
-            "tipo": "Vinho Tinto",
-            "ano": 2020,
+            "id": 4,
+            "nome": "Merlot Rosé",
+            "tipo": "Rosé",
+            "ano": 2009,
             "pais": "Chile",
             "regiao": "Maipo Valley",
             "caracteristicas": ["intenso", "encorpado"]
         },
 
         {
-            "nome": "Cabernet Sauvignon",
-            "tipo": "Vinho Tinto",
-            "ano": 2020,
+            "id": 5,
+            "nome": "Grenache",
+            "tipo": "Rosé",
+            "ano": 2013,
             "pais": "Chile",
             "regiao": "Maipo Valley",
             "caracteristicas": ["intenso", "encorpado"]
+        },
+
+        {
+            "id": 6,
+            "nome": "Vinho do Porto",
+            "tipo": "Liquoroso",
+            "ano": 2010,
+            "pais": "Chile",
+            "regiao": "Maipo Valley",
+            "caracteristicas": ["intenso", "encorpado"]
+        },
+
+        {
+            "id": 7,
+            "nome": "Vinho Madeira",
+            "tipo": "Fortificado",
+            "ano": 2012,
+            "pais": "Chile",
+            "regiao": "Maipo Valley",
+            "caracteristicas": ["intenso", "encorpado"]
+        },
+
+        {
+            "id": 8,
+            "nome": "Marsala",
+            "tipo": "Liquoroso",
+            "ano": 2015,
+            "pais": "Chile",
+            "regiao": "Maipo Valley",
+            "caracteristicas": ["intenso", "encorpado"]
+        },
+
+        {
+            "id": 9,
+            "nome": "Prosecco",
+            "tipo": "Espumante",
+            "ano": 2016,
+            "pais": "Chile",
+            "regiao": "Maipo Valley",
+            "caracteristicas": ["gaseoso", "dupla fermentação"]
+        },
+
+        {
+            "id": 10,
+            "nome": "Champagne",
+            "tipo": "Espumante",
+            "ano": 2017,
+            "pais": "Chile",
+            "regiao": "Maipo Valley",
+            "caracteristicas": ["gaseoso", "dupla fermentação"]
         }
     ]
 }
