@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Adega Vinho & Cia</title>
 </head>
 <body>
-    
+    <header>
+        <h1>🍷 Adega <span>Vinho & Cia</span></h1>
+        <a href ="admin.html">Painel Administrativo</a>
+    </header>
+
+    <main>
+        <section class="filtro">
+            <input type="search" id="busca" placeholder="Buscar por nome, país, região ou característica...">
+            <select id ="filtroPais"><option value="">Todos os países</option></select>
+            <label><input type="checkbox" id="soEstoque"> Somente disponíveis</label>
+        </section>
+
+        <section class="chips" id="chipsTipo" aria-label="Filtro por tipo"></section>
+    </main>
 </body>
 </html>
