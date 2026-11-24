@@ -1,0 +1,38 @@
+:root {
+  --vinho: #6b1a2b;
+  --vinho-escuro: #4a0f1d;
+  --dourado: #c8a24a;
+  --fundo: #faf6f4;
+  --texto: #2b2024;
+  --ok: #2e7d32;
+  --baixo: #e08a00;
+  --esgotado: #b3261e;
+}
+
+body {
+     margin: 0; 
+     font-family: "Segoe UI", 
+     system-ui, 
+     sans-serif; 
+     background: var(--fundo); 
+     color: var(--texto); }
+
+header.topo { 
+    background: var(--vinho-escuro); 
+    color: #fff; 
+    padding: 16px 24px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    gap: 8px; }
+
+main { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 24px 16px; }
+
+msg { 
+    text-align: center; 
+    padding: 30px; 
+    color: #6a5a5e; }
