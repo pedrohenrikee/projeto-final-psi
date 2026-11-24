@@ -2,6 +2,7 @@ let vinhos = [];
 const grade = document.getElementById("grade");
 const mensagem = document.getElementById("mensagem");
 const modal = document.getElementById("modal");
+const estado = { texto: ""};
 
 async function iniciar() {
   try {
@@ -14,10 +15,10 @@ async function iniciar() {
 }
 
 function renderizar() {
-  const lista = vinhos;
+  const lista = filtrar();
   mensagem.classList.remove("erro");
   mensagem.style.display = lista.length ? "none" : "block";
-  if (!lista.length) mensagem.textContent = "Nenhum vinho encontrado.";
+  if (!lista.length) mensagem.textContent = "Nenhum vinho encontrado com esses filtros.";
 
   grade.innerHTML = lista.map((v) => {
     const st = statusEstoque(v.estoque);
@@ -67,5 +68,19 @@ grade.addEventListener("keydown", (e) => {
 });
 document.getElementById("fecharModal").addEventListener("click", () => modal.close());
 modal.addEventListener("click", (e) => { if (e.target === modal) modal.close(); });
+
+function filtrar() {
+    const termo = estado.texto.trim().toLowerCase();
+    return vinhos.filter((v) => {
+        const alvo = [v.nome, v.tipo, v.pais, v.regiao, v.uva, ...(v.caracteristicas || [])].join(" ").toLowerCase();
+        return !termo || alvo.includes(termo);
+
+    });
+}
+
+document.getElementById("busca").addEventListener("input", (e) => {
+    estado.texto = e.target.value;
+    renderizar();
+});
 
 iniciar();
