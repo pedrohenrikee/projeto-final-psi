@@ -2,16 +2,53 @@ let vinhos = [];
 const grade = document.getElementById("grade");
 const mensagem = document.getElementById("mensagem");
 const modal = document.getElementById("modal");
+
 const estado = { texto: "", tipo: "", pais: "", soEstoque: false };
 
 async function iniciar() {
   try {
     vinhos = await api.listar();
+    montarFiltros(); 
     renderizar();
   } catch (e) {
     mensagem.textContent = "Não foi possível carregar os vinhos. Verifique a URL da API em config.js.";
     mensagem.classList.add("erro");
   }
+}
+
+function montarFiltros() {
+  const tipos = [...new Set(vinhos.map((v) => v.tipo))].sort();
+  const paises = [...new Set(vinhos.map((v) => v.pais))].sort();
+
+  const chips = document.getElementById("chipsTipo");
+  chips.innerHTML = ["Todos", ...tipos]
+    .map((t, i) => `<button class="chip ${i === 0 ? "ativo" : ""}" data-tipo="${i === 0 ? "" : esc(t)}">${esc(t)}</button>`)
+    .join("");
+  chips.addEventListener("click", (e) => {
+    const chip = e.target.closest(".chip");
+    if (!chip) return;
+    chips.querySelectorAll(".chip").forEach((c) => c.classList.remove("ativo"));
+    chip.classList.add("ativo");
+    estado.tipo = chip.dataset.tipo;
+    renderizar();
+  });
+
+  document.getElementById("filtroPais").innerHTML +=
+    paises.map((p) => `<option value="${esc(p)}">${esc(p)}</option>`).join("");
+}
+
+function filtrar() {
+  const termo = estado.texto.trim().toLowerCase();
+  return vinhos.filter((v) => {
+    const alvo = [v.nome, v.tipo, v.pais, v.regiao, v.uva, ...(v.caracteristicas || [])]
+      .join(" ").toLowerCase();
+    return (
+      (!termo || alvo.includes(termo)) &&
+      (!estado.tipo || v.tipo === estado.tipo) &&
+      (!estado.pais || v.pais === estado.pais) &&
+      (!estado.soEstoque || Number(v.estoque) > 0)
+    );
+  });
 }
 
 function renderizar() {
@@ -59,32 +96,30 @@ function abrirDetalhe(id) {
   modal.showModal();
 }
 
+document.getElementById("busca").addEventListener("input", (e) => {
+  estado.texto = e.target.value;
+  renderizar();
+});
+document.getElementById("filtroPais").addEventListener("change", (e) => {
+  estado.pais = e.target.value;
+  renderizar();
+});
+document.getElementById("soEstoque").addEventListener("change", (e) => {
+  estado.soEstoque = e.target.checked;
+  renderizar();
+});
+
 grade.addEventListener("click", (e) => {
   const c = e.target.closest(".card");
   if (c) abrirDetalhe(c.dataset.id);
 });
 grade.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") { const c = e.target.closest(".card"); if (c) abrirDetalhe(c.dataset.id); }
+  if (e.key === "Enter") {
+    const c = e.target.closest(".card");
+    if (c) abrirDetalhe(c.dataset.id);
+  }
 });
 document.getElementById("fecharModal").addEventListener("click", () => modal.close());
 modal.addEventListener("click", (e) => { if (e.target === modal) modal.close(); });
-
-function filtrar() {
-    const termo = estado.texto.trim().toLowerCase();
-    return vinhos.filter((v) => {
-        const alvo = [v.nome, v.tipo, v.pais, v.regiao, v.uva, ...(v.caracteristicas || [])].join(" ").toLowerCase();
-       return (
-      (!termo || alvo.includes(termo)) &&
-      (!estado.tipo || v.tipo === estado.tipo) &&
-      (!estado.pais || v.pais === estado.pais) &&
-      (!estado.soEstoque || Number(v.estoque) > 0)
-    );
-  });
-}
-
-document.getElementById("busca").addEventListener("input", (e) => {
-    estado.texto = e.target.value;
-    renderizar();
-});
 
 iniciar();
