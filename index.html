@@ -15,7 +15,11 @@
   <main>
     <section class="filtros">
         <input type="search" id="busca" placeholder="Buscar por nome, país, região ou característica...">
+        <select id="filtroPais"><option value="">Todos os países</option></select>
+        <label><input type="checkbox" id="soEstoque"> Somente disponíveis</label>
     </section>
+
+    <section class="chips" id="chipsTipo" aria-label="Filtrar por tipo"></section>
 
     <section class="grade" id="grade"></section>
     <p class="msg" id="mensagem">Carregando vinhos... (a API pode levar alguns segundos para acordar)</p>

@@ -2,7 +2,7 @@ let vinhos = [];
 const grade = document.getElementById("grade");
 const mensagem = document.getElementById("mensagem");
 const modal = document.getElementById("modal");
-const estado = { texto: ""};
+const estado = { texto: "", tipo: "", pais: "", soEstoque: false };
 
 async function iniciar() {
   try {
@@ -73,9 +73,13 @@ function filtrar() {
     const termo = estado.texto.trim().toLowerCase();
     return vinhos.filter((v) => {
         const alvo = [v.nome, v.tipo, v.pais, v.regiao, v.uva, ...(v.caracteristicas || [])].join(" ").toLowerCase();
-        return !termo || alvo.includes(termo);
-
-    });
+       return (
+      (!termo || alvo.includes(termo)) &&
+      (!estado.tipo || v.tipo === estado.tipo) &&
+      (!estado.pais || v.pais === estado.pais) &&
+      (!estado.soEstoque || Number(v.estoque) > 0)
+    );
+  });
 }
 
 document.getElementById("busca").addEventListener("input", (e) => {

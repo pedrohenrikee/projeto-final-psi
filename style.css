@@ -178,3 +178,24 @@ dialog::backdrop {
         grid-template-columns: 1fr;
     }
 }
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filtros input[type="search"],
+.filtros select {
+    padding: 10px 12px;
+    border: 1px solid #ccb;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.filtros input[type="search"] {
+    flex: 1;
+    min-width: 220px;
+}
