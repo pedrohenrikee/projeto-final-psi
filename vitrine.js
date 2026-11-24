@@ -1,6 +1,7 @@
 let vinhos = [];
 const grade = document.getElementById("grade");
 const mensagem = document.getElementById("mensagem");
+const modal = document.getElementById("modal");
 
 async function iniciar() {
   try {
@@ -32,5 +33,39 @@ function renderizar() {
       </article>`;
   }).join("");
 }
+
+function abrirDetalhe(id) {
+  const v = vinhos.find((x) => String(x.id) === String(id));
+  if (!v) return;
+  const st = statusEstoque(v.estoque);
+  document.getElementById("detalhe").innerHTML = `
+    <img src="${esc(imagemSegura(v.imagem))}" alt="${esc(v.nome)}" onerror="this.src=PLACEHOLDER">
+    <div>
+      <h2>${esc(v.nome)} ${esc(v.ano)}</h2>
+      <span class="selo ${st.classe}">${esc(st.texto)}</span>
+      <p class="preco">${formatarPreco(v.preco)}</p>
+      <dl>
+        <dt>Tipo</dt><dd>${esc(v.tipo)}</dd>
+        <dt>País</dt><dd>${esc(v.pais)}</dd>
+        <dt>Região</dt><dd>${esc(v.regiao)}</dd>
+        <dt>Uva</dt><dd>${esc(v.uva || "—")}</dd>
+        <dt>Teor alcoólico</dt><dd>${v.teor ? esc(v.teor) + "%" : "—"}</dd>
+        <dt>Características</dt><dd>${esc((v.caracteristicas || []).join(", "))}</dd>
+        <dt>Em estoque</dt><dd>${Number(v.estoque) || 0} un.</dd>
+      </dl>
+      <p>${esc(v.descricao || "")}</p>
+    </div>`;
+  modal.showModal();
+}
+
+grade.addEventListener("click", (e) => {
+  const c = e.target.closest(".card");
+  if (c) abrirDetalhe(c.dataset.id);
+});
+grade.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") { const c = e.target.closest(".card"); if (c) abrirDetalhe(c.dataset.id); }
+});
+document.getElementById("fecharModal").addEventListener("click", () => modal.close());
+modal.addEventListener("click", (e) => { if (e.target === modal) modal.close(); });
 
 iniciar();
