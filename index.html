@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adega Vinho & Cia</title>
-</head>
-<body>
-    <header>
-        <h1>🍷 Adega <span>Vinho & Cia</span></h1>
-        <a href ="admin.html">Painel Administrativo</a>
-    </header>
+<header class="topo">
+  <h1>🍷 Adega <span>Vinho & Cia</span></h1>
+  <a href="admin.html">Painel administrativo →</a>
+</header>
 
-    <main>
-        <section class="filtro">
-            <input type="search" id="busca" placeholder="Buscar por nome, país, região ou característica...">
-            <select id ="filtroPais"><option value="">Todos os países</option></select>
-            <label><input type="checkbox" id="soEstoque"> Somente disponíveis</label>
-        </section>
+<main>
+  <section class="grade" id="grade"></section>
+  <p class="msg" id="mensagem">Carregando vinhos... (a API pode levar alguns segundos para acordar)</p>
+</main>
 
-        <section class="chips" id="chipsTipo" aria-label="Filtro por tipo"></section>
-    </main>
-</body>
-</html>
+<script src="config.js"></script>
+<script src="api.js"></script>
+<script src="vitrine.js"></script>
