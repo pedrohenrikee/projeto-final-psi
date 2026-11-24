@@ -1,38 +1,93 @@
 :root {
-  --vinho: #6b1a2b;
-  --vinho-escuro: #4a0f1d;
-  --dourado: #c8a24a;
-  --fundo: #faf6f4;
-  --texto: #2b2024;
-  --ok: #2e7d32;
-  --baixo: #e08a00;
-  --esgotado: #b3261e;
+    --vinho: #6b1a2b;
+    --vinho-escuro: #4a0f1d;
+    --dourado: #c8a24a;
+    --fundo: #faf6f4;
+    --texto: #2b2024;
+    --ok: #2e7d32;
+    --baixo: #e08a00;
+    --esgotado: #b3261e;
 }
 
 body {
-     margin: 0; 
-     font-family: "Segoe UI", 
-     system-ui, 
-     sans-serif; 
-     background: var(--fundo); 
-     color: var(--texto); }
+    margin: 0;
+    font-family: "Segoe UI",
+        system-ui,
+        sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+}
 
-header.topo { 
-    background: var(--vinho-escuro); 
-    color: #fff; 
-    padding: 16px 24px; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    flex-wrap: wrap; 
-    gap: 8px; }
+header.topo {
+    background: var(--vinho-escuro);
+    color: #fff;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
 
-main { 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 24px 16px; }
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
 
-msg { 
-    text-align: center; 
-    padding: 30px; 
-    color: #6a5a5e; }
+msg {
+    text-align: center;
+    padding: 30px;
+    color: #6a5a5e;
+}
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: transform .15s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #efe6e8;
+}
+
+.card .info {
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.card .meta {
+    color: #6a5a5e;
+    font-size: .85rem;
+}
+
+.preco {
+    font-weight: 700;
+    color: var(--vinho);
+    font-size: 1.15rem;
+}
