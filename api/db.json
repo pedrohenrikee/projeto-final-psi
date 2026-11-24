@@ -11,7 +11,7 @@
             "teor": 13.5,
             "preco": 129.9,
             "estoque": 12,
-            "imagem": "",
+            "imagem": "https://res.cloudinary.com/vpihpy44/image/upload/v1795522369/01_Merlot.jpg",
             "descricao": "Tinto macio e frutado, ótimo com carnes assadas e queijos.",
             "caracteristicas": [
                 "frutado",
