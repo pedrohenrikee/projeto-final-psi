@@ -1,5 +1,5 @@
 {
-  "vinhos": [
+    "vinhos": [
         {
             "id": 1,
             "nome": "Merlot",
@@ -7,9 +7,17 @@
             "ano": 2018,
             "pais": "França",
             "regiao": "Bordeaux",
-            "caracteristicas": ["frutado", "complexo"]
+            "uva": "Merlot",
+            "teor": 13.5,
+            "preco": 129.9,
+            "estoque": 12,
+            "imagem": "",
+            "descricao": "Tinto macio e frutado, ótimo com carnes assadas e queijos.",
+            "caracteristicas": [
+                "frutado",
+                "complexo"
+            ]
         },
-
         {
             "id": 2,
             "nome": "Chardonnay",
@@ -17,9 +25,17 @@
             "ano": 2019,
             "pais": "França",
             "regiao": "Burgundy",
-            "caracteristicas": ["refinado", "elegante"]
+            "uva": "Chardonnay",
+            "teor": 12.5,
+            "preco": 159.9,
+            "estoque": 8,
+            "imagem": "",
+            "descricao": "Branco refinado, combina com peixes e frutos do mar.",
+            "caracteristicas": [
+                "refinado",
+                "elegante"
+            ]
         },
-
         {
             "id": 3,
             "nome": "Merlot",
@@ -27,9 +43,17 @@
             "ano": 2011,
             "pais": "Chile",
             "regiao": "Maipo Valley",
-            "caracteristicas": ["intenso", "encorpado"]
+            "uva": "Merlot",
+            "teor": 13.5,
+            "preco": 99.9,
+            "estoque": 4,
+            "imagem": "",
+            "descricao": "Tinto intenso e encorpado, safra especial.",
+            "caracteristicas": [
+                "intenso",
+                "encorpado"
+            ]
         },
-
         {
             "id": 4,
             "nome": "Merlot Rosé",
@@ -37,9 +61,17 @@
             "ano": 2009,
             "pais": "Chile",
             "regiao": "Maipo Valley",
-            "caracteristicas": ["intenso", "encorpado"]
+            "uva": "Merlot",
+            "teor": 12,
+            "preco": 89.9,
+            "estoque": 6,
+            "imagem": "",
+            "descricao": "Rosé de safra rara, estrutura marcante.",
+            "caracteristicas": [
+                "intenso",
+                "encorpado"
+            ]
         },
-
         {
             "id": 5,
             "nome": "Grenache",
@@ -47,9 +79,17 @@
             "ano": 2013,
             "pais": "Chile",
             "regiao": "Maipo Valley",
-            "caracteristicas": ["intenso", "encorpado"]
+            "uva": "Grenache",
+            "teor": 12.5,
+            "preco": 79.9,
+            "estoque": 15,
+            "imagem": "",
+            "descricao": "Rosé encorpado, ideal para aperitivos.",
+            "caracteristicas": [
+                "intenso",
+                "encorpado"
+            ]
         },
-
         {
             "id": 6,
             "nome": "Vinho do Porto",
@@ -57,9 +97,17 @@
             "ano": 2010,
             "pais": "Chile",
             "regiao": "Maipo Valley",
-            "caracteristicas": ["intenso", "encorpado"]
+            "uva": "Blend",
+            "teor": 19.5,
+            "preco": 189.9,
+            "estoque": 0,
+            "imagem": "",
+            "descricao": "Liquoroso doce e intenso, para sobremesas.",
+            "caracteristicas": [
+                "intenso",
+                "encorpado"
+            ]
         },
-
         {
             "id": 7,
             "nome": "Vinho Madeira",
@@ -67,9 +115,17 @@
             "ano": 2012,
             "pais": "Chile",
             "regiao": "Maipo Valley",
-            "caracteristicas": ["intenso", "encorpado"]
+            "uva": "Blend",
+            "teor": 18,
+            "preco": 169.9,
+            "estoque": 3,
+            "imagem": "",
+            "descricao": "Fortificado complexo, notas de frutas secas.",
+            "caracteristicas": [
+                "intenso",
+                "encorpado"
+            ]
         },
-
         {
             "id": 8,
             "nome": "Marsala",
@@ -77,9 +133,17 @@
             "ano": 2015,
             "pais": "Chile",
             "regiao": "Maipo Valley",
-            "caracteristicas": ["intenso", "encorpado"]
+            "uva": "Blend",
+            "teor": 17,
+            "preco": 119.9,
+            "estoque": 9,
+            "imagem": "",
+            "descricao": "Liquoroso versátil, usado também na culinária.",
+            "caracteristicas": [
+                "intenso",
+                "encorpado"
+            ]
         },
-
         {
             "id": 9,
             "nome": "Prosecco",
@@ -87,9 +151,17 @@
             "ano": 2016,
             "pais": "Chile",
             "regiao": "Maipo Valley",
-            "caracteristicas": ["gaseoso", "dupla fermentação"]
+            "uva": "Glera",
+            "teor": 11,
+            "preco": 109.9,
+            "estoque": 20,
+            "imagem": "",
+            "descricao": "Espumante leve e fresco, perfeito para brindar.",
+            "caracteristicas": [
+                "gaseoso",
+                "dupla fermentação"
+            ]
         },
-
         {
             "id": 10,
             "nome": "Champagne",
@@ -97,7 +169,16 @@
             "ano": 2017,
             "pais": "Chile",
             "regiao": "Maipo Valley",
-            "caracteristicas": ["gaseoso", "dupla fermentação"]
+            "uva": "Chardonnay",
+            "teor": 12,
+            "preco": 249.9,
+            "estoque": 2,
+            "imagem": "",
+            "descricao": "Espumante premium de dupla fermentação.",
+            "caracteristicas": [
+                "gaseoso",
+                "dupla fermentação"
+            ]
         }
     ]
 }
