@@ -118,3 +118,63 @@ msg {
     filter: grayscale(1);
     opacity: .7;
 }
+
+dialog {
+    border: none;
+    border-radius: 14px;
+    padding: 0;
+    max-width: 720px;
+    width: 92%;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, .55);
+}
+
+.detalhe {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.detalhe img {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 380px;
+    object-fit: cover;
+}
+
+.detalhe h2 {
+    margin-top: 0;
+}
+
+.detalhe dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px 12px;
+    margin: 12px 0;
+}
+
+.detalhe dt {
+    font-weight: 600;
+}
+
+.detalhe dd {
+    margin: 0;
+}
+
+.fechar {
+    float: right;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin: 8px 12px 0 0;
+}
+
+@media (max-width: 600px) {
+    .detalhe {
+        grid-template-columns: 1fr;
+    }
+}
