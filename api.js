@@ -32,3 +32,10 @@ const PLACEHOLDER =
 function imagemSegura(url) {
   return url && /^https?:\/\//.test(url) ? url : PLACEHOLDER;
 }
+
+function statusEstoque(qtd) {
+  qtd = Number(qtd) || 0;
+  if (qtd <= 0) return { texto: "Esgotado", classe: "esgotado" };
+  if (qtd <= ESTOQUE_BAIXO) return { texto: `Últimas ${qtd} unidades`, classe: "baixo" };
+  return { texto: "Em estoque", classe: "ok" };
+}

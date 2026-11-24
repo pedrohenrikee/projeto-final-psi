@@ -91,3 +91,30 @@ msg {
     color: var(--vinho);
     font-size: 1.15rem;
 }
+
+.selo {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.selo.ok {
+    background: var(--ok);
+}
+
+.selo.baixo {
+    background: var(--baixo);
+}
+
+.selo.esgotado {
+    background: var(--esgotado);
+}
+
+.card.sem-estoque img {
+    filter: grayscale(1);
+    opacity: .7;
+}

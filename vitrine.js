@@ -18,15 +18,19 @@ function renderizar() {
   mensagem.style.display = lista.length ? "none" : "block";
   if (!lista.length) mensagem.textContent = "Nenhum vinho encontrado.";
 
-  grade.innerHTML = lista.map((v) => `
-    <article class="card" data-id="${esc(v.id)}" tabindex="0">
-      <img src="${esc(imagemSegura(v.imagem))}" alt="${esc(v.nome)}" loading="lazy" onerror="this.src=PLACEHOLDER">
-      <div class="info">
-        <h3>${esc(v.nome)} ${esc(v.ano)}</h3>
-        <span class="meta">${esc(v.tipo)} · ${esc(v.pais)}</span>
-        <span class="preco">${formatarPreco(v.preco)}</span>
-      </div>
-    </article>`).join("");
+  grade.innerHTML = lista.map((v) => {
+    const st = statusEstoque(v.estoque);
+    return `
+      <article class="card ${st.classe === "esgotado" ? "sem-estoque" : ""}" data-id="${esc(v.id)}" tabindex="0">
+        <img src="${esc(imagemSegura(v.imagem))}" alt="${esc(v.nome)}" loading="lazy" onerror="this.src=PLACEHOLDER">
+        <div class="info">
+          <h3>${esc(v.nome)} ${esc(v.ano)}</h3>
+          <span class="meta">${esc(v.tipo)} · ${esc(v.pais)}</span>
+          <span class="preco">${formatarPreco(v.preco)}</span>
+          <span class="selo ${st.classe}">${esc(st.texto)}</span>
+        </div>
+      </article>`;
+  }).join("");
 }
 
 iniciar();
