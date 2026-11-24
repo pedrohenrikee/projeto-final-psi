@@ -199,3 +199,25 @@ dialog::backdrop {
     flex: 1;
     min-width: 220px;
 }
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.chip {
+    border: 1px solid var(--vinho);
+    background: #fff;
+    color: var(--vinho);
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: .9rem;
+}
+
+.chip.ativo {
+    background: var(--vinho);
+    color: #fff;
+}
