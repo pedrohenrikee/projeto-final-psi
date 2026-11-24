@@ -1,0 +1,9 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./db.json:/app/db.json
