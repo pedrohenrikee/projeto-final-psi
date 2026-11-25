@@ -40,6 +40,11 @@ function renderizar(){
             <div>
                 <button class="btn perigo" data-acao="excluir" data-id="${esc(v.id)}">Excluir</button>
             </div>
+            <div class="estoque-ctrl">
+                <input type="number" min="1" value="1" id="qtd-${esc(v.id)}">
+                <button class="btn ok" data-acao="entrada" data-id="${esc(v.id)}" title="Entrada">+</button>
+                <button class="btn aviso" data-acao="baixa" data-id="${esc(v.id)}" title="Baixa">-</button>
+            </div>
         </td>
         </tr>`;
   }).join("");
