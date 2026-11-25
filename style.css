@@ -53,6 +53,11 @@ header.topo a:focus-visible {
   outline-offset: 3px;
 }
 
+@media (max-width: 600px) {
+  header.topo { justify-content: center; text-align: center; }
+  header.topo a { width: 100%; justify-content: center; }
+}
+
 main {
     max-width: 1200px;
     margin: 0 auto;
