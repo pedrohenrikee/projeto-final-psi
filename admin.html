@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Adega Vinho & Cia - Admin</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header class="topo">
+        <h1>🍷 Painel <span>Administrativo</span></h1>
+        <a href="index.html">← Voltar à Vitrine</a>
+    </header>
+
+    <main class="painel">
+        <form class="cadastro" id="form">
+            <h2 id="tituloForm">Novo Vinho</h2>
+            <input type="hidden" id="id">
+
+            <label>Nome <input id="nome" required></label>
+            <div class="linha">
+        <label>Tipo
+          <select id="tipo" required>
+            <option value="">Selecione</option>
+            <option>Vinho Tinto</option>
+            <option>Vinho Branco</option>
+            <option>Rosé</option>
+            <option>Espumante</option>
+            <option>Liquoroso</option>
+            <option>Fortificado</option>
+          </select>
+        </label>
+        <label>Ano <input id="ano" type="number" min="1900" max="2100" required></label>
+      </div>
+        </form>
+
+    </main>
+
 </body>
 </html>
