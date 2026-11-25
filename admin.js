@@ -53,5 +53,11 @@ function lerFormulario(){
     };
 }
 
+function limparFormulario() {
+    form.reset();
+    $("id").value = "";
+    $("tituloForm").textContent = "Novo vinho";
+}
+
 $("buscaAdmin").addEventListener("input", renderizar);
 carregar();
