@@ -102,6 +102,22 @@ $("arquivo").addEventListener("change", async (e) => {
   }
 });
 
+function editar (id) {
+    const v = vinhos.find((x) => String(x.id) === String(id));
+    if (!v) return;
+    $("id").value = v.id;
+    $("nome").value = v.nome ?? "";
+    $("tipo").value = v.tipo ?? "";
+    $("ano").value = v.ano ?? "";
+    $("pais").value = v.pais ?? "";
+    $("regiao").value = v.regiao ?? "";
+    $("uva").value = v.uva ?? "";
+    $("teor").value = v.teor ?? "";
+    $("preco").value = v.preco ?? "";
+    $("estoque").value = v.estoque ?? 0;
+    $("características").value = (v.caracteristicas || []).join(", ");
+ }
+
 $("imagem").addEventListener("input", (e) => mostrarPreview(e.target.value));
 
 $("buscaAdmin").addEventListener("input", renderizar);
