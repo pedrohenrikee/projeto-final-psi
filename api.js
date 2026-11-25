@@ -16,6 +16,7 @@ const api = {
   criar: (dados) => requisicao(BASE, { method: "POST", body: JSON.stringify(dados) }),
   atualizar: (id, dados) => requisicao(`${BASE}/${id}`, { method: "PUT", body: JSON.stringify(dados) }),
   excluir: (id) => requisicao (`${BASE}/${id}` , {method: "DELETE" }),
+  parcial: (id, dados) => requisicao (`${BASE}/${id}`, { method: "PATCH", body: JSON.stringify(dados) }),
 };
 
 function esc(texto) {
