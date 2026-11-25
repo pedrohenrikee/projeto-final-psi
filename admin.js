@@ -61,3 +61,14 @@ function limparFormulario() {
 
 $("buscaAdmin").addEventListener("input", renderizar);
 carregar();
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  try {
+    const criado = await api.criar(lerFormulario());
+    vinhos.push(criado);
+    aviso("Vinho cadastrado!");
+    limparFormulario();
+    renderizar();
+  } catch (err) {aviso(err.message);}
+  });
