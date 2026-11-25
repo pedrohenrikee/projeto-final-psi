@@ -113,10 +113,19 @@ function editar (id) {
     $("regiao").value = v.regiao ?? "";
     $("uva").value = v.uva ?? "";
     $("teor").value = v.teor ?? "";
-    $("preco").value = v.preco ?? "";
+    $("preco").value = v.preco ?? "";$
     $("estoque").value = v.estoque ?? 0;
     $("características").value = (v.caracteristicas || []).join(", ");
  }
+
+$("btnCancelar").addEventListener("click", () => {limparFormulario(); $("btnCancelar").hidden = true;});
+
+$("corpo").addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-acao]");
+    if (!b) return;
+    const { acao, id } = b.dataset;
+    if (acao == "editar") editar(id);
+});
 
 $("imagem").addEventListener("input", (e) => mostrarPreview(e.target.value));
 
