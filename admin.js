@@ -36,5 +36,22 @@ function renderizar(){
   }).join("");
 }
 
+function lerFormulario(){
+    return {
+        nome: $("nome").value.trim(),
+        tipo: $("tipo").value.trim(),
+        ano: Number($("ano").value.trim()),
+        pais: $("pais").value.trim(),
+        regiao: $("regiao").value.trim(),
+        uva: $("uva").value.trim(),
+        teor: $("teor").value ? Number($("teor").value) : null,
+        preco: Number($("preco").value),
+        estoque: parseInt($("estoque").value, 10),
+        caracteristicas: $("caracteristicas").value.split(",").map((s) => s.trim()).filter(Boolean),
+        descricao: $("descricao").value.trim(),
+        imagem: $("imagem").value.trim(),
+    };
+}
+
 $("buscaAdmin").addEventListener("input", renderizar);
 carregar();

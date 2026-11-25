@@ -11,6 +11,7 @@ async function requisicao(url, opcoes = {}) {
 
 const api = {
   listar: () => requisicao(BASE),
+  criar: (dados) => requisicao(BASE, { method: "POST", body: JSON.stringify(dados) }),
 };
 
 function esc(texto) {
@@ -39,3 +40,4 @@ function statusEstoque(qtd) {
   if (qtd <= ESTOQUE_BAIXO) return { texto: `Últimas ${qtd} unidades`, classe: "baixo" };
   return { texto: "Em estoque", classe: "ok" };
 }
+
