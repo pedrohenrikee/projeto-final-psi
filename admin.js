@@ -33,8 +33,10 @@ function renderizar(){
             <td><strong>${esc(v.nome)} ${esc(v.ano)}</strong><br><small>${esc(v.tipo)} · ${esc(v.pais)}</small></td>
             <td>${formatarPreco(v.preco)}</td>
         <td><strong>${Number(v.estoque) || 0}</strong><br><span class="selo ${st.classe}">${esc(st.texto)}</span></td>
-        <td class="acoes">
-        <button class="btn sec" data-acao="editar" data-id="${esc(v.id)}">Editar</button>
+        <td>
+            <div class="acoes">
+                <button class="btn sec" data-acao="editar" data-id="${esc(v.id)}">Editar</button>
+            </div>
         </td>
         </tr>`;
   }).join("");
@@ -71,12 +73,12 @@ form.addEventListener("submit", async (e) => {
     if (id) {
         const original = vinhos.find((v) => String(v.id) === String(id)) || {};
         const dados = { ...original, ...lerFormulario() };
-        if (!dados.imagem) dados.imagem = original.imagem || "";   // não apaga a imagem existente
-        const atualizado = await api.atualizar(id, dados); // PUT
+        if (!dados.imagem) dados.imagem = original.imagem || "";   
+        const atualizado = await api.atualizar(id, dados); 
         vinhos = vinhos.map((v) => (String(v.id) === String(id) ? atualizado : v));
         aviso("Vinho atualizado!");
     } else {
-      const criado = await api.criar(dados); // POST
+      const criado = await api.criar(dados); 
       vinhos.push(criado);
       aviso("Vinho cadastrado!");
     }
