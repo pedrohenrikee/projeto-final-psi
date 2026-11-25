@@ -1,3 +1,5 @@
+'use strict'
+
 const BASE = `${API_URL}/${RECURSO}`;
 
 async function requisicao(url, opcoes = {}) {

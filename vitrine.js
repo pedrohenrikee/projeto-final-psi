@@ -1,3 +1,5 @@
+'use strict'
+
 let vinhos = [];
 const grade = document.getElementById("grade");
 const mensagem = document.getElementById("mensagem");

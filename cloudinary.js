@@ -1,8 +1,5 @@
 'use strict'
 
-const CLOUDINARY_CLOUD_NAME = "vpihpy44";
-const CLOUDINARY_UPLOAD_PRESET = "adega_preset";
-
 async function uploadParaCloudinary(arquivo) {
     const formData = new FormData();
     formData.append("file", arquivo);
