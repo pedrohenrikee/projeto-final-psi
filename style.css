@@ -224,7 +224,7 @@ dialog::backdrop {
 
 .painel {
     display: grid;
-    grid-template-columns: 340px 1fr;
+    grid-template-columns: 340px minmax(0, 1fr);
     gap: 24px;
     align-items: start;
 }
@@ -257,9 +257,20 @@ form.cadastro label {
     gap: 3px;
 }
 
+form.cadastro label {
+    display: flex;
+    flex-direction: column;
+    font-size: .85rem;
+    font-weight: 600;
+    gap: 3px;
+    min-width: 0;
+}
+
 form.cadastro input,
 form.cadastro select,
 form.cadastro textarea {
+    width: 100%;
+    min-width: 0;
     padding: 8px;
     border: 1px solid #ccb;
     border-radius: 6px;
@@ -269,7 +280,7 @@ form.cadastro textarea {
 
 .linha {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 10px;
 }
 
