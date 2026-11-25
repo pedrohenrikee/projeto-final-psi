@@ -14,6 +14,7 @@ async function requisicao(url, opcoes = {}) {
 const api = {
   listar: () => requisicao(BASE),
   criar: (dados) => requisicao(BASE, { method: "POST", body: JSON.stringify(dados) }),
+  atualizar: (id, dados) => requisicao(`${BASE}/${id}`, { method: "PUT", body: JSON.stringify(dados) }),
 };
 
 function esc(texto) {
