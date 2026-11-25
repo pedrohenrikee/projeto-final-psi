@@ -21,7 +21,7 @@ async function carregar(){
 }
 
 function renderizar(){
-    const termo = $("buscaAdmin").ariaValueMax.trim().toLowerCase();
+    const termo = $("buscaAdmin").value.trim().toLowerCase();
     const lista = vinhos.filter((v) => `${v.nome} ${v.tipo} ${v.pais}`.toLowerCase().includes(termo));
     $("corpo").innerHTML = lista.map((v) => {
         const st = statusEstoque(v.estoque);
