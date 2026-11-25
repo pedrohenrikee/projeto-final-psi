@@ -140,6 +140,17 @@ function editar (id) {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+async function excluir(id) {
+    const v = vinhos.find((x) => String(x.id) === String(id));
+    if (!v || !confirm(`Excluir "${v.nome} ${v.ano}"?`)) return;
+    try {
+        await api.excluir(id);
+        vinhos = vinhos.filter((x) => String(x.id) !== String(id));
+        renderizar();
+        aviso("Vinho excluído.");
+    } catch (err) {aviso(err.message); }
+}
+
 $("btnCancelar").addEventListener("click", () => {limparFormulario(); $("btnCancelar").hidden = true;});
 
 $("corpo").addEventListener("click", (e) => {
@@ -147,6 +158,7 @@ $("corpo").addEventListener("click", (e) => {
     if (!b) return;
     const { acao, id } = b.dataset;
     if (acao == "editar") editar(id);
+    else if (acao === "excluir") excluir(id);
 });
 
 $("imagem").addEventListener("input", (e) => mostrarPreview(e.target.value));
