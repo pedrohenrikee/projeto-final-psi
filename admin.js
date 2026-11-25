@@ -34,18 +34,21 @@ function renderizar(){
             <td>${formatarPreco(v.preco)}</td>
         <td><strong>${Number(v.estoque) || 0}</strong><br><span class="selo ${st.classe}">${esc(st.texto)}</span></td>
         <td>
-            <div class="acoes">
-                <button class="btn sec" data-acao="editar" data-id="${esc(v.id)}">Editar</button>
-            </div>
-            <div>
-                <button class="btn perigo" data-acao="excluir" data-id="${esc(v.id)}">Excluir</button>
-            </div>
             <div class="estoque-ctrl">
                 <input type="number" min="1" value="1" id="qtd-${esc(v.id)}">
                 <button class="btn ok" data-acao="entrada" data-id="${esc(v.id)}" title="Entrada">+</button>
                 <button class="btn aviso" data-acao="baixa" data-id="${esc(v.id)}" title="Baixa">-</button>
             </div>
         </td>
+        <td>
+            <div class="acoes">
+                <button class="btn sec" data-acao="editar" data-id="${esc(v.id)}">Editar</button>
+            </div>
+            <div>
+                <button class="btn perigo" data-acao="excluir" data-id="${esc(v.id)}">Excluir</button>
+            </div>
+        </td>
+        
         </tr>`;
   }).join("");
 }
@@ -174,14 +177,7 @@ async function movimentar(id, tipo) {
   } catch (e) { aviso(e.message); }
 }
 
-$("corpo").addEventListener("click", (e) => {
-  const b = e.target.closest("button[data-acao]");
-  if (!b) return;
-  const { acao, id } = b.dataset;
-  if (acao === "editar") editar(id);
-  else if (acao === "excluir") excluir(id);
-  else movimentar(id, acao);
-});
+
 
 $("btnCancelar").addEventListener("click", () => {limparFormulario(); $("btnCancelar").hidden = true;});
 
@@ -191,6 +187,7 @@ $("corpo").addEventListener("click", (e) => {
     const { acao, id } = b.dataset;
     if (acao == "editar") editar(id);
     else if (acao === "excluir") excluir(id);
+    else movimentar(id, acao);
 });
 
 $("imagem").addEventListener("input", (e) => mostrarPreview(e.target.value));
