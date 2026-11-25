@@ -37,6 +37,9 @@ function renderizar(){
             <div class="acoes">
                 <button class="btn sec" data-acao="editar" data-id="${esc(v.id)}">Editar</button>
             </div>
+            <div>
+                <button class="btn perigo" data-acao="excluir" data-id="${esc(v.id)}">Excluir</button>
+            </div>
         </td>
         </tr>`;
   }).join("");
