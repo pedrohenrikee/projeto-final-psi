@@ -159,6 +159,30 @@ async function excluir(id) {
     } catch (err) {aviso(err.message); }
 }
 
+async function movimentar(id, tipo) {
+  const v = vinhos.find((x) => String(x.id) === String(id));
+  const qtd = parseInt($(`qtd-${id}`).value, 10);
+  if (!v || !(qtd > 0)) return aviso("Informe uma quantidade válida.");
+  const atual = Number(v.estoque) || 0;
+  const novo = tipo === "entrada" ? atual + qtd : atual - qtd;
+  if (novo < 0) return aviso(`Baixa maior que o estoque (${atual}).`);
+  try {
+    const atualizado = await api.parcial(id, { estoque: novo }); // PATCH
+    Object.assign(v, atualizado);
+    renderizar();
+    aviso(`Estoque de ${v.nome}: ${novo} un.`);
+  } catch (e) { aviso(e.message); }
+}
+
+$("corpo").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-acao]");
+  if (!b) return;
+  const { acao, id } = b.dataset;
+  if (acao === "editar") editar(id);
+  else if (acao === "excluir") excluir(id);
+  else movimentar(id, acao);
+});
+
 $("btnCancelar").addEventListener("click", () => {limparFormulario(); $("btnCancelar").hidden = true;});
 
 $("corpo").addEventListener("click", (e) => {
