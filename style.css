@@ -10,6 +10,7 @@
 }
 
 
+
 body {
     margin: 0;
     font-family: "Segoe UI",
@@ -19,15 +20,37 @@ body {
     color: var(--texto);
 }
 
-header.topo {
-    background: var(--vinho-escuro);
-    color: #fff;
-    padding: 16px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+header.topo a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid var(--dourado);
+  border-radius: 999px;
+  color: var(--dourado);
+  background: transparent;
+  font-weight: 600;
+  font-size: .95rem;
+  text-decoration: none;
+  letter-spacing: .3px;
+  transition: background .2s, color .2s, transform .2s, box-shadow .2s;
+}
+
+header.topo a:hover {
+  background: var(--dourado);
+  color: var(--vinho-escuro);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .35);
+}
+
+header.topo a:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+header.topo a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
 }
 
 main {
