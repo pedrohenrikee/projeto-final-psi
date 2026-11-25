@@ -127,7 +127,13 @@ function editar (id) {
     $("preco").value = v.preco ?? "";$
     $("estoque").value = v.estoque ?? 0;
     $("características").value = (v.caracteristicas || []).join(", ");
- }
+    $("descricao").value = value = v.descricao ?? "";
+    $("imagem").value = v.imagem ?? "";
+    mostrarPreview(v.imagem);
+    $("tituloForm").textContent = `Editando: ${v.nome}`;
+    $("btnCancelar").hidden = false
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
 $("btnCancelar").addEventListener("click", () => {limparFormulario(); $("btnCancelar").hidden = true;});
 
