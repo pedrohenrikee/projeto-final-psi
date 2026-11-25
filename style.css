@@ -9,6 +9,7 @@
     --esgotado: #b3261e;
 }
 
+
 body {
     margin: 0;
     font-family: "Segoe UI",
@@ -271,12 +272,14 @@ form.cadastro select,
 form.cadastro textarea {
     width: 100%;
     min-width: 0;
+    box-sizing: border-box;
     padding: 8px;
     border: 1px solid #ccb;
     border-radius: 6px;
     font: inherit;
     font-weight: 400;
 }
+
 
 .linha {
     display: grid;
