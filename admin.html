@@ -32,6 +32,26 @@
         </label>
         <label>Ano <input id="ano" type="number" min="1900" max="2100" required></label>
       </div>
+      <div class="linha">
+        <label>País <input id="pais" required></label>
+        <label>Região <input id="regiao" required></label>
+      </div>
+      <div class="linha">
+        <label>Uva <input id="uva"></label>
+        <label>Teor alcoólico (%) <input id="teor" type="number" step="0.1" min="0" max="25"></label>
+      </div>
+      <div class="linha">
+        <label>Preço (R$) <input id="preco" type="number" step="0.01" min="0" required></label>
+        <label>Estoque <input id="estoque" type="number" min="0" step="1" required></label>
+      </div>
+      <label>Características (separadas por vírgula) <input id="caracteristicas" placeholder="frutado, encorpado"></label>
+      <label>Descrição <textarea id="descricao" rows="3"></textarea></label>
+      <label>Imagem (URL pública)
+        <input id="imagem" type="url" placeholder="https://res.cloudinary.com/...">
+      </label>
+
+      <button class="btn primario" type="submit" id="btnSalvar">Salvar</button>
+      <button class="btn sec" type="button" id="btnCancelar" hidden>Cancelar edição</button>
         </form>
 
     </main>
