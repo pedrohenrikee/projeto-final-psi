@@ -33,7 +33,9 @@ function renderizar(){
             <td><strong>${esc(v.nome)} ${esc(v.ano)}</strong><br><small>${esc(v.tipo)} · ${esc(v.pais)}</small></td>
             <td>${formatarPreco(v.preco)}</td>
         <td><strong>${Number(v.estoque) || 0}</strong><br><span class="selo ${st.classe}">${esc(st.texto)}</span></td>
-        <td class="acoes"></td>
+        <td class="acoes">
+        <button class="btn sec" data-acao="editar" data-id="${esc(v.id)}">Editar</button>
+        </td>
         </tr>`;
   }).join("");
 }
