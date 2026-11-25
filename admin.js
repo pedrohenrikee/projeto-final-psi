@@ -19,3 +19,22 @@ async function carregar(){
         $("mensagem").classList.add("erro");
     }
 }
+
+function renderizar(){
+    const termo = $("buscaAdmin").ariaValueMax.trim().toLowerCase();
+    const lista = vinhos.filter((v) => `${v.nome} ${v.tipo} ${v.pais}`.toLowerCase().includes(termo));
+    $("corpo").innerHTML = lista.map((v) => {
+        const st = statusEstoque(v.estoque);
+        return `
+        <tr>
+            <td><img src="${esc(imagemSegura(v.imagem))}" alt="" onerror="this.src=PLACEHOLDER"></td>
+            <td><strong>${esc(v.nome)} ${esc(v.ano)}</strong><br><small>${esc(v.tipo)} · ${esc(v.pais)}</small></td>
+            <td>${formatarPreco(v.preco)}</td>
+        <td><strong>${Number(v.estoque) || 0}</strong><br><span class="selo ${st.classe}">${esc(st.texto)}</span></td>
+        <td class="acoes"></td>
+        </tr>`;
+  }).join("");
+}
+
+$("buscaAdmin").addEventListener("input", renderizar);
+carregar();
