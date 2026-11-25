@@ -1,3 +1,5 @@
+'use strict'
+
 let vinhos = [];
 const $ = (id) => document.getElementById(id);
 const form = $("form");
@@ -59,9 +61,6 @@ function limparFormulario() {
     $("tituloForm").textContent = "Novo vinho";
 }
 
-$("buscaAdmin").addEventListener("input", renderizar);
-carregar();
-
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   try {
@@ -72,3 +71,38 @@ form.addEventListener("submit", async (e) => {
     renderizar();
   } catch (err) {aviso(err.message);}
   });
+
+function mostrarPreview(url) {
+  const img = $("preview");
+  if (url && /^(https?:|blob:)/.test(url)) { img.src = url; img.hidden = false; }
+  else img.hidden = true;
+}
+
+$("arquivo").addEventListener("change", async (e) => {
+  const arquivo = e.target.files[0];
+  if (!arquivo) return;
+  if (!arquivo.type.startsWith("image/")) return aviso("Escolha um arquivo de imagem.");
+  if (arquivo.size > 5 * 1024 * 1024) return aviso("A imagem deve ter até 5 MB.");
+
+  mostrarPreview(URL.createObjectURL(arquivo)); 
+
+  const botao = $("btnSalvar");
+  botao.disabled = true;
+  botao.textContent = "Enviando imagem...";
+  try {
+    const link = await uploadParaCloudinary(arquivo);
+    $("imagem").value = link;  
+    mostrarPreview(link);
+    aviso("Imagem enviada!");
+  } catch (err) {
+    aviso(err.message);
+  } finally {
+    botao.disabled = false;
+    botao.textContent = "Salvar";
+  }
+});
+
+$("imagem").addEventListener("input", (e) => mostrarPreview(e.target.value));
+
+$("buscaAdmin").addEventListener("input", renderizar);
+carregar();

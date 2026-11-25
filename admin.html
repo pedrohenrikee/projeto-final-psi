@@ -49,6 +49,10 @@
         <label>Imagem (URL pública)
         <input id="imagem" type="url" placeholder="https://res.cloudinary.com/...">
         </label>
+        <label>Ou envie uma imagem do seu computador
+        <input id="arquivo" type="file" accept="image/*">
+        </label>
+        <img id="preview" class="preview-img" alt="" hidden>
 
         <button class="btn primario" type="submit" id="btnSalvar">Salvar</button>
         <button class="btn sec" type="button" id="btnCancelar" hidden>Cancelar edição</button>
@@ -81,6 +85,7 @@
 
     <script src="config.js"></script>
     <script src="api.js"></script>
+    <script src="cloudinary.js"></script>
     <script src="admin.js"></script>
 </body>
 </html>
