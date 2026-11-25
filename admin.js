@@ -69,9 +69,12 @@ form.addEventListener("submit", async (e) => {
   const id = $("id").value;
   try {
     if (id) {
-      const atualizado = await api.atualizar(id, dados); // PUT
-      vinhos = vinhos.map((v) => (String(v.id) === String(id) ? atualizado : v));
-      aviso("Vinho atualizado!");
+        const original = vinhos.find((v) => String(v.id) === String(id)) || {};
+        const dados = { ...original, ...lerFormulario() };
+        if (!dados.imagem) dados.imagem = original.imagem || "";   // não apaga a imagem existente
+        const atualizado = await api.atualizar(id, dados); // PUT
+        vinhos = vinhos.map((v) => (String(v.id) === String(id) ? atualizado : v));
+        aviso("Vinho atualizado!");
     } else {
       const criado = await api.criar(dados); // POST
       vinhos.push(criado);
